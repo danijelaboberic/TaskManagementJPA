@@ -2,6 +2,7 @@ package dim.ris.controller;
 
 import javax.persistence.EntityManager;
 
+import dim.ris.model.Role;
 import dim.ris.model.User;
 
 public class UserController {
@@ -17,12 +18,22 @@ public class UserController {
 				em.getTransaction().rollback();
 				return false;
 			}
+		    
+		}
 		
+		public static Role getRole(int idRole){
+			EntityManager em = JPAUtil.getEntityManager();
+			try {		
+	            return em.find(Role.class, idRole);
+			}catch (Exception e) {
+				return null;
+			}
 		    
 		}
 
 
 	public static void main(String[] args) {
+		//za testiranje
 		User u = new User();
 		u.setName("Maja");
 		boolean ok = register(u);
