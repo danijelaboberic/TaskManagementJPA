@@ -30,6 +30,12 @@ public class UserController {
 			}
 		    
 		}
+		public static User getLastUser() {
+			String query = "select u from User u where u.idUser = (select max(u1.idUser) from User u1)";
+			EntityManager em = JPAUtil.getEntityManager();
+			User u = (User)em.createQuery(query).getSingleResult();
+			return u;
+		}
 
 
 	public static void main(String[] args) {
