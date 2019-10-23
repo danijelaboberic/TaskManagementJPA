@@ -1,5 +1,7 @@
 package dim.ris.controller;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 
 import dim.ris.model.Role;
@@ -36,7 +38,12 @@ public class UserController {
 			User u = (User)em.createQuery(query).getSingleResult();
 			return u;
 		}
-
+		public static List<User> getAllUsers() {
+			String query = "select u from User u";
+			EntityManager em = JPAUtil.getEntityManager();
+			List<User> users = em.createQuery(query).getResultList();
+			return users;
+		}
 
 	public static void main(String[] args) {
 		//za testiranje
