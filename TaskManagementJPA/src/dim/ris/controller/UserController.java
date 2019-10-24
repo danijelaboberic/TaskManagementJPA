@@ -45,6 +45,14 @@ public class UserController {
 			return users;
 		}
 
+		
+		public static void delete(int userId) {
+			EntityManager em = JPAUtil.getEntityManager();
+			em.getTransaction().begin();
+			em.remove(em.find(User.class, userId));
+			em.getTransaction().commit();
+			
+		}
 	public static void main(String[] args) {
 		//za testiranje
 		User u = new User();
