@@ -53,6 +53,19 @@ public class UserController {
 			em.getTransaction().commit();
 			
 		}
+		public static User login(String username) {
+			String query = "select u from User u where u.username =:username";
+			try {
+			EntityManager em = JPAUtil.getEntityManager();
+			User user = (User)em.createQuery(query).
+					setParameter("username", username).
+		            getSingleResult();
+			return user;
+			}catch (Exception e) {
+				// TODO: handle exception
+				return null;
+			}
+		}
 	public static void main(String[] args) {
 		//za testiranje
 		User u = new User();
