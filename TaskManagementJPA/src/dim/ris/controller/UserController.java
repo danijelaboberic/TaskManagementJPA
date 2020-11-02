@@ -1,6 +1,7 @@
 package dim.ris.controller;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.persistence.EntityManager;
 
@@ -68,10 +69,9 @@ public class UserController {
 		}
 	public static void main(String[] args) {
 		//za testiranje
-		User u = new User();
-		u.setName("Maja");
-		boolean ok = register(u);
-		System.out.println(ok ? "uspesno registrovan korisnik": "doslo je do greske");
+         System.out.println(getAllUsers().stream().
+        		 map((User u) -> u.getName()).
+        		 collect(Collectors.joining(",")));
 		
 
 	}
