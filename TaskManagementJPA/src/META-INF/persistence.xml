@@ -8,10 +8,11 @@
 		<class>dim.ris.model.Task</class>
 		<class>dim.ris.model.User</class>
 		<properties>
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://nastava.is.pmf.uns.ac.rs:3306/predavanja"/>
-			<property name="javax.persistence.jdbc.user" value="profesor"/>
-			<property name="javax.persistence.jdbc.password" value="Profa1212!"/>
-			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://nastava.is.pmf.uns.ac.rs:3306/is2"/>
+			<property name="javax.persistence.jdbc.user" value="ris"/>
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+			<property name="javax.persistence.jdbc.password" value="ris2Nastava!"/>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
 		</properties>
 	</persistence-unit>
 </persistence>
