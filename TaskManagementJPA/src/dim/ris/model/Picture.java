@@ -1,7 +1,7 @@
 package dim.ris.model;
 
 import java.io.Serializable;
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 
 /**

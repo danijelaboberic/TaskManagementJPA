@@ -1,4 +1,3 @@
-create schema is2 collate utf8mb4_unicode_ci;
 
 create table role
 (
