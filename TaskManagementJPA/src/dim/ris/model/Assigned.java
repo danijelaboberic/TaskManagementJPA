@@ -10,7 +10,7 @@ import jakarta.persistence.*;
  * 
  */
 @Entity
-@Table(name="assigned")
+@Table(name="db_assigned")
 @NamedQuery(name="Assigned.findAll", query="SELECT a FROM Assigned a")
 public class Assigned implements Serializable {
 	private static final long serialVersionUID = 1L;

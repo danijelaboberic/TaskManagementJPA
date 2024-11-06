@@ -9,7 +9,7 @@ import jakarta.persistence.*;
  * 
  */
 @Entity
-@Table(name="picture")
+@Table(name="db_picture")
 @NamedQuery(name="Picture.findAll", query="SELECT p FROM Picture p")
 public class Picture implements Serializable {
 	private static final long serialVersionUID = 1L;
