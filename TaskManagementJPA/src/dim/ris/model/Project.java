@@ -2,6 +2,9 @@ package dim.ris.model;
 
 import java.io.Serializable;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
 import java.util.Set;
 
 
@@ -20,8 +23,10 @@ public class Project implements Serializable {
 	private int idProject;
 
 	@Lob
+	@NotBlank(message = "opis je obavezno polje")
 	private String description;
-
+	
+	@NotBlank(message = "naslov je obavezno polje")
 	private String title;
 
 	//bi-directional many-to-one association to Picture
