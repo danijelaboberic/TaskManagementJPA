@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
+import java.util.HashSet;
 import java.util.Set;
 
 
@@ -30,7 +31,7 @@ public class Project implements Serializable {
 	private String title;
 
 	//bi-directional many-to-one association to Picture
-	@OneToMany(mappedBy="project")
+	@OneToMany(mappedBy="project", cascade = CascadeType.ALL)
 	private Set<Picture> pictures;
 
 	//bi-directional many-to-one association to User
@@ -70,6 +71,9 @@ public class Project implements Serializable {
 	}
 
 	public Set<Picture> getPictures() {
+		if (this.pictures == null) {
+			this.pictures = new HashSet<Picture>();
+		}
 		return this.pictures;
 	}
 
