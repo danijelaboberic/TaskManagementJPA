@@ -1,6 +1,9 @@
 package dim.ris.model;
 
 import java.io.Serializable;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 
 
@@ -26,6 +29,7 @@ public class Picture implements Serializable {
 	//bi-directional many-to-one association to Project
 	@ManyToOne
 	@JoinColumn(name="idProject")
+	@JsonIgnore
 	private Project project;
 
 	public Picture() {

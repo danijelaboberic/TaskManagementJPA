@@ -8,6 +8,8 @@ import jakarta.validation.constraints.NotNull;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 /**
  * The persistent class for the project database table.
@@ -32,15 +34,18 @@ public class Project implements Serializable {
 
 	//bi-directional many-to-one association to Picture
 	@OneToMany(mappedBy="project", cascade = CascadeType.ALL)
+	@JsonIgnore
 	private Set<Picture> pictures;
 
 	//bi-directional many-to-one association to User
 	@ManyToOne
 	@JoinColumn(name="idLeader")
+	@JsonIgnore
 	private User user;
 
 	//bi-directional many-to-one association to Task
 	@OneToMany(mappedBy="project")
+	@JsonIgnore
 	private Set<Task> tasks;
 
 	public Project() {
