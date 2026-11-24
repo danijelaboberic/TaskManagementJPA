@@ -2,6 +2,10 @@ package dim.ris.model;
 
 import java.io.Serializable;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import java.util.Set;
 
 
@@ -19,10 +23,15 @@ public class User implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idUser;
 
+	@NotBlank(message = "{user.name.notblank}")
 	private String name;
 
+	@NotBlank(message = "{user.password.notblank}")
+	@Size(min = 6, message = "{user.password.size}")
 	private String password;
 
+	@NotBlank(message = "{user.username.notblank}")
+	@Email(message = "{user.username.email}")
 	private String username;
 
 	//bi-directional many-to-one association to Assigned
@@ -36,6 +45,7 @@ public class User implements Serializable {
 	//bi-directional many-to-one association to Role
 	@ManyToOne
 	@JoinColumn(name="idRole")
+	@NotNull(message = "{user.role.notnull}")
 	private Role role;
 
 	public User() {
