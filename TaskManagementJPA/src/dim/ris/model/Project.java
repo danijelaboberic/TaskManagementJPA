@@ -26,10 +26,10 @@ public class Project implements Serializable {
 	private int idProject;
 
 	@Lob
-	@NotBlank(message = "opis je obavezno polje")
+	@NotBlank(message = "{project.description.notblank}")
 	private String description;
 	
-	@NotBlank(message = "naslov je obavezno polje")
+	@NotBlank(message = "{project.title.notblank}")
 	private String title;
 
 	//bi-directional many-to-one association to Picture
